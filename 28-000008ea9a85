@@ -26,7 +26,7 @@ json_key = json.load(open(JSON_FILENAME))
 creds = ServiceAccountCredentials.from_json_keyfile_name(JSON_FILENAME, SCOPES)
 
 client_inst = gspread.authorize(creds)
-gsheet = client_inst.open(GSHEET_NAME).get_worksheet(3)
+gsheet = client_inst.open(GSHEET_NAME).get_worksheet(2)
 
 os.system('modprobe w1-gpio')
 os.system('modprobe w1-therm strong_pullup=1')
