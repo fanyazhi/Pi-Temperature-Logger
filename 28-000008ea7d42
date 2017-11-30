@@ -31,7 +31,7 @@ gsheet = client_inst.open(GSHEET_NAME).get_worksheet(1)
 os.system('modprobe w1-gpio')
 os.system('modprobe w1-therm strong_pullup=1')
 while True:
-        temp_sensor = '/sys/bus/w1/devices/28-000008ea9a85/w1_slave'
+        temp_sensor = '/sys/bus/w1/devices/28-000008ea7d42/w1_slave'
 
         def temp_raw():
                 f = open(temp_sensor, 'r')
