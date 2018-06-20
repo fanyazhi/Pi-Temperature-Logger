@@ -1,7 +1,5 @@
 # Pi-Temperature-Logger
-code for 3 of the raspberry pi temperature readers in lab
-records real time temperture on google spreadsheet
-
+Sensor used: DS18B20-PAR  
 
 ## Wireless Temperature Sensing With File Server
 ### How to access temperature csv data
@@ -10,7 +8,7 @@ records real time temperture on google spreadsheet
 * Mac: Go to Finder=>Shared=>raspberrypi
 * [Windows](https://www.techrepublic.com/article/how-to-connect-to-linux-samba-shares-from-windows-10/)
 
-Reconnect if loses connection to server, data should not be affected.
+Reconnect if loses connection to server, data should not be affected.  
 Temperature updates about every 2 seconds, should move to new file after 2 hours (3600 lines).
 
 ### Details 
@@ -64,7 +62,7 @@ Remember to change the serial code in the python script
 
 
 ## Wireless Temperature Sensing With Google Spreadsheet 
-Unstable, requires good internet signal
+Unstable, requires good internet signal.
 
 ### Details 
 #### Raspberry Pi Setup

@@ -26,12 +26,12 @@ json_key = json.load(open(JSON_FILENAME))
 creds = ServiceAccountCredentials.from_json_keyfile_name(JSON_FILENAME, SCOPES)
 
 client_inst = gspread.authorize(creds)
-gsheet = client_inst.open(GSHEET_NAME).get_worksheet(0)
+gsheet = client_inst.open(GSHEET_NAME).get_worksheet(1)
 
 os.system('modprobe w1-gpio')
 os.system('modprobe w1-therm strong_pullup=1')
 while True:
-        temp_sensor = '/sys/bus/w1/devices/28-000008ea9a85/w1_slave'
+        temp_sensor = '/sys/bus/w1/devices/28-000008ea7d42/w1_slave'
 
         def temp_raw():
                 f = open(temp_sensor, 'r')
@@ -54,9 +54,9 @@ while True:
 
         temp_c = read_temp()
         curr_time = datetime.datetime.now()
-        print ("Writing")
+        print (temp_c)
 #write a new row to the spreadsheet with the current time and temperature
 gsheet.append_row((curr_time, temp_c))
-#remove all rows once row count reaches 200
-        if gsheet.row_count >= 200:
-            gsheet.resize(rows=1)
+#remove all rows once row count reaches 3600 (~2 hours)
+if gsheet.row_count >= 3600:
+        gsheet.resize(rows=1)
